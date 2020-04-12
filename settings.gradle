@@ -1,0 +1,2 @@
+rootProject.name='CoroutinesFlowTest'
+include ':app'
