@@ -6,7 +6,9 @@ import kotlinx.coroutines.channels.BroadcastChannel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
-class MainViewModel: ViewModel() {
+class MainViewModel(
+    private val repository: GithubRepository
+) : ViewModel() {
 
     val trigger = BroadcastChannel<Unit>(1)
 
@@ -19,7 +21,7 @@ class MainViewModel: ViewModel() {
 
     fun loadData() {
         viewModelScope.launch(Dispatchers.Main) {
-            GithubRepository().getRepositoryList("Coroutine", 1).collect{
+            repository.getRepositoryList("Coroutine", 1).collect{
                 repoItems.addAll(it.items)
                 trigger.send(Unit)
             }

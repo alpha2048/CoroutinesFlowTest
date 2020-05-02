@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'koin'
+
 android {
     compileSdkVersion 29
 
@@ -66,6 +68,16 @@ dependencies {
     implementation "com.squareup.moshi:moshi-kotlin:1.9.2"
     implementation 'com.squareup.okhttp3:okhttp:4.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:4.4.0'
+
+    // Koin
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-scope:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+    implementation "org.koin:koin-android-ext:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation "org.koin:koin-androidx-ext:$koin_version"
 
     // test
     testImplementation 'junit:junit:4.12'
